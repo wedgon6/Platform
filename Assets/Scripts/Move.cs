@@ -20,13 +20,21 @@ public class Move : MonoBehaviour
         if (Input.GetKey(KeyCode.D))
         {
             transform.Translate(_speed * Time.deltaTime, 0,0);
-            _animator.SetTrigger("MoveRight");
+            _animator.SetBool("isMoveRight", true);
+        }
+        else
+        {
+            _animator.SetBool("isMoveLeft", false);
         }
 
         if (Input.GetKey(KeyCode.A))
         {
             transform.Translate(_speed * Time.deltaTime * -1, 0, 0);
-            _animator.SetTrigger("MoveLeft");
+            _animator.SetBool("isMoveLeft", true);
+        }
+        else
+        {
+            _animator.SetBool("isMoveLeft", false);
         }
 
         if (Input.GetKey(KeyCode.Space))
