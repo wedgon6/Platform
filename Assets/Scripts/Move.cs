@@ -8,6 +8,7 @@ public class Move : MonoBehaviour
     private Animator _animator;
     private Rigidbody2D _rigidbody2D;
     private float _jumpForse = 5;
+    private bool _isFlip = true;
 
     private void Start()
     {
@@ -24,7 +25,7 @@ public class Move : MonoBehaviour
         }
         else
         {
-            _animator.SetBool("isMoveLeft", false);
+            _animator.SetBool("isMoveRight", false);
         }
 
         if (Input.GetKey(KeyCode.A))
@@ -39,7 +40,6 @@ public class Move : MonoBehaviour
 
         if (Input.GetKey(KeyCode.Space))
         {
-            // _rigidbody2D.AddForce(Vector2.up*_jumpForse);
             transform.Translate(0, _speed * Time.deltaTime*_jumpForse, 0);
         }
     }

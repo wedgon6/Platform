@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MayPointEnemyMovment : MonoBehaviour
+public class WayPointEnemyMovment : MonoBehaviour
 {
     [SerializeField] Transform _path;
 

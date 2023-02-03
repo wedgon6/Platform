@@ -1,14 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
+[RequireComponent(typeof(AudioSource))]
 public class MainCamera : MonoBehaviour
 {
     [SerializeField] private Transform _player;
 
+    private AudioSource _audio;
+    private Coroutine _coroutine;
+
     private void Start()
     {
-        //_player = GetComponent<Player>();
+        _audio = GetComponent<AudioSource>();
+        _coroutine = StartCoroutine(HellVoise());
     }
 
     private void LateUpdate()
@@ -18,5 +24,16 @@ public class MainCamera : MonoBehaviour
         temp.y = _player.position.y;
 
         transform.position = temp;
+    }
+
+    private IEnumerator HellVoise()
+    {
+        bool isPlaying = true;
+
+        while (isPlaying)
+        {
+            _audio.Play();
+            yield return new WaitForSeconds(20);
+        }
     }
 }
