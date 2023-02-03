@@ -2,14 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
 public class Move : MonoBehaviour
 {
     private float _speed = 2;
     private Animator _animator;
     private Rigidbody2D _rigidbody2D;
     private float _jumpForse = 5;
-    private bool _isFlip = true;
-
+    private HashAnimation _hashAnimation = new HashAnimation();
+    
     private void Start()
     {
         _animator = GetComponent<Animator>();
@@ -21,21 +22,21 @@ public class Move : MonoBehaviour
         if (Input.GetKey(KeyCode.D))
         {
             transform.Translate(_speed * Time.deltaTime, 0,0);
-            _animator.SetBool("isMoveRight", true);
+            _animator.SetBool(_hashAnimation.IsMoveRightHash, true);
         }
         else
         {
-            _animator.SetBool("isMoveRight", false);
+            _animator.SetBool(_hashAnimation.IsMoveRightHash, false);
         }
 
         if (Input.GetKey(KeyCode.A))
         {
             transform.Translate(_speed * Time.deltaTime * -1, 0, 0);
-            _animator.SetBool("isMoveLeft", true);
+            _animator.SetBool(_hashAnimation.IsMoveLeftHash, true);
         }
         else
         {
-            _animator.SetBool("isMoveLeft", false);
+            _animator.SetBool(_hashAnimation.IsMoveLeftHash, false);
         }
 
         if (Input.GetKey(KeyCode.Space))

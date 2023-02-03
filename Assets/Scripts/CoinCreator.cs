@@ -28,7 +28,7 @@ public class CoinCreator : MonoBehaviour
         {
             Instantiate(_coin, _points[i].position, Quaternion.identity);
 
-            yield return new WaitForSeconds(0);
+            yield return null;
         }
     }
 }

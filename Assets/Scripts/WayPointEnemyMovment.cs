@@ -9,7 +9,6 @@ public class WayPointEnemyMovment : MonoBehaviour
     private Transform[] _points;
     private int _currentPoint;
     private float _speed = 1;
-
     private void Start()
     {
         _points = new Transform[_path.childCount];
@@ -19,7 +18,6 @@ public class WayPointEnemyMovment : MonoBehaviour
             _points[i] = _path.GetChild(i);
         }
     }
-
     private void Update()
     {
         Transform target = _points[_currentPoint];
